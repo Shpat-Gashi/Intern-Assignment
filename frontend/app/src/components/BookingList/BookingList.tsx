@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useState, useEffect, SetStateAction, Dispatch } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 import { Booking } from "../../../utils/interface";
 import { getAllBookings } from "../../service/booking";
+import BookingSkeleton from "../BookingSkeleton";
 
 import { CiCalendarDate } from "react-icons/ci";
 import { CiTimer } from "react-icons/ci";
-import BookingSkeleton from "../Skeleton/Skeleton";
 
 const BookingsList: React.FC = (): JSX.Element => {
   const [bookings, setBookings] = useState<Booking[]>([]);

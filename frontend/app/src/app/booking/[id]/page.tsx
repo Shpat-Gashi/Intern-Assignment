@@ -1,12 +1,14 @@
 "use client";
 
-import { CiTimer } from "react-icons/ci";
-import { Booking } from "../../../../utils/interface";
-import { getBookingById } from "../../../service/booking";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+
+import { Booking } from "../../../../utils/interface";
+import { getBookingById } from "../../../service/booking";
+import BookingSkeleton from "@/components/BookingSkeleton";
+
+import { CiTimer } from "react-icons/ci";
 import { FaUserDoctor } from "react-icons/fa6";
-import BookingSkeleton from "@/components/Skeleton/Skeleton";
 
 interface BookingDetailsPageProps {
   params: {

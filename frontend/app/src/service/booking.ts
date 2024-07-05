@@ -1,5 +1,6 @@
 import { AxiosResponse } from "axios";
 import axios from "../../utils/axios";
+
 import { addNewBooking, Booking } from "../../utils/interface";
 
 export const getAllBookings = async (): Promise<Booking[]> => {
