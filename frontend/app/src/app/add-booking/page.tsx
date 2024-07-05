@@ -11,33 +11,12 @@ import { useState } from "react";
 
 import { addBooking } from "@/service/booking";
 import { newBookingValidationSchema } from "@/validation/newBooking.validation.schema";
+import { endTimes, startTimes } from "../../../utils/data";
 
 const AddNewBooking: React.FC = (): JSX.Element => {
   const [error, setError] = useState<boolean>(false);
   const router = useRouter();
   const { toast } = useToast();
-
-  const startTimes = [
-    "09:00 AM",
-    "10:00 AM",
-    "11:00 AM",
-    "12:00 PM",
-    "01:00 PM",
-    "02:00 PM",
-    "03:00 PM",
-    "04:00 PM",
-  ];
-
-  const endTimes = [
-    "10:00 AM",
-    "11:00 AM",
-    "12:00 PM",
-    "01:00 PM",
-    "02:00 PM",
-    "03:00 PM",
-    "04:00 PM",
-    "05:00 PM",
-  ];
 
   const {
     values,
@@ -94,6 +73,8 @@ const AddNewBooking: React.FC = (): JSX.Element => {
     "Service E",
   ];
 
+  const today = new Date().toISOString().split("T")[0];
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full md:w-[600px] bg-white shadow-lg rounded-lg px-8 py-6">
@@ -128,7 +109,6 @@ const AddNewBooking: React.FC = (): JSX.Element => {
                 </div>
               )}
             </div>
-
             <div className="flex flex-col">
               <label htmlFor="doctor_name" className="text-sm font-medium">
                 Doctor Name
@@ -153,7 +133,6 @@ const AddNewBooking: React.FC = (): JSX.Element => {
                 </div>
               )}
             </div>
-
             <div className="flex flex-col">
               <label htmlFor="start_time" className="text-sm font-medium">
                 Start Time
@@ -182,7 +161,6 @@ const AddNewBooking: React.FC = (): JSX.Element => {
                 </div>
               )}
             </div>
-
             <div className="flex flex-col">
               <label htmlFor="end_time" className="text-sm font-medium">
                 End Time
@@ -211,7 +189,6 @@ const AddNewBooking: React.FC = (): JSX.Element => {
                 </div>
               )}
             </div>
-
             <div className="flex flex-col">
               <label htmlFor="date" className="text-sm font-medium">
                 Date
@@ -223,6 +200,7 @@ const AddNewBooking: React.FC = (): JSX.Element => {
                 value={values.date}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                min={today}
                 className={`h-12 mt-1 pl-4 pr-8 rounded border ${
                   touched.date && errors.date
                     ? "border-red-500"
