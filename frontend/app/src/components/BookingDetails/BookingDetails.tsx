@@ -61,9 +61,9 @@ const BookingDetails: React.FC<BookingDetailsProps> = ({ id }) => {
           <FaUserDoctor className="text-3xl text-purple-600 mr-4" />
           <div className="text-xl">
             <p className="text-gray-800 font-semibold mb-1">
-              This Booking is with
+              This Booking is with:
             </p>
-            <p className="text-gray-700">{booking.doctor_name}</p>
+            <p className="text-gray-700 font-semibold">{booking.doctor_name}</p>
             <p className="text-gray-700">{booking.service}</p>
           </div>
         </div>

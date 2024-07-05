@@ -48,7 +48,7 @@ const BookingsList: React.FC = (): JSX.Element => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h2 className="font-semibold text-4xl my-5">Bookings Listttt</h2>
+      <h2 className="font-semibold text-4xl my-5">Bookings List</h2>
       <div className="w-full max-w-3xl space-y-4">
         {bookings?.map((booking: Booking) => (
           <div
@@ -58,18 +58,20 @@ const BookingsList: React.FC = (): JSX.Element => {
             <Link href={`/booking/${booking.id}`}>
               <div className="flex justify-between items-center">
                 <div className="flex items-center space-x-2">
-                  <CiCalendarDate className="text-xl text-gray-600" />
+                  <CiCalendarDate className="text-xl text-gray-600 mr-1" />
                   <span className="font-semibold text-gray-800">
                     A Booking on Date:
                   </span>
                   <span className="text-gray-700">{booking.date}</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center w-[250px] ">
                   <CiTimer className="text-xl text-gray-600" />
-                  <span className="font-semibold text-gray-800">
+                  <span className="font-semibold text-gray-800 mx-2">
                     Starting At:
                   </span>
-                  <span className="text-gray-700">{booking.start_time}</span>
+                  <span className="text-gray-700 ml-2">
+                    {booking.start_time}
+                  </span>
                 </div>
               </div>
             </Link>
