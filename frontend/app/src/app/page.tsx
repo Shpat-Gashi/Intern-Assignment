@@ -1,11 +1,5 @@
 import BookingsList from "../components/BookingList";
 
-const Home = () => {
-  return (
-    <div>
-      <BookingsList />
-    </div>
-  );
-};
+const Home = () => <BookingsList />;
 
 export default Home;

@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-
 import { Booking } from "../../../utils/interface";
 import { getAllBookings } from "../../service/booking";
 import BookingSkeleton from "../BookingSkeleton";
@@ -49,30 +48,28 @@ const BookingsList: React.FC = (): JSX.Element => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h2 className="font-semibold text-4xl my-5">Bookings List</h2>
+      <h2 className="font-semibold text-4xl my-5">Bookings Listttt</h2>
       <div className="w-full max-w-3xl space-y-4">
-        {bookings.map((booking: Booking) => (
+        {bookings?.map((booking: Booking) => (
           <div
             key={booking.id}
             className="w-full p-5 bg-white rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition duration-300"
           >
             <Link href={`/booking/${booking.id}`}>
-              <div className="flex justify-between">
-                <div className="flex items-center">
-                  <CiCalendarDate className="text-xl mr-2 text-gray-600" />
+              <div className="flex justify-between items-center">
+                <div className="flex items-center space-x-2">
+                  <CiCalendarDate className="text-xl text-gray-600" />
                   <span className="font-semibold text-gray-800">
                     A Booking on Date:
                   </span>
-                  <span className="ml-2 text-gray-700">{booking.date}</span>
+                  <span className="text-gray-700">{booking.date}</span>
                 </div>
-                <div className="flex items-center w-35 mx-2">
-                  <CiTimer className="text-xl mr-2 text-gray-600" />
+                <div className="flex items-center space-x-2">
+                  <CiTimer className="text-xl text-gray-600" />
                   <span className="font-semibold text-gray-800">
                     Starting At:
                   </span>
-                  <span className="ml-2 text-gray-700">
-                    {booking.start_time}
-                  </span>
+                  <span className="text-gray-700">{booking.start_time}</span>
                 </div>
               </div>
             </Link>
